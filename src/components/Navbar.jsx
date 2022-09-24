@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 import { ToastContainer, toast } from "react-toastify";
+import Logo from "../assets/images/logo.svg";
 
 const Navbar = () => {
   const { signin, authError } = useContext(AuthContext);
@@ -20,9 +21,7 @@ const Navbar = () => {
   return (
     <>
       <div className="flex absolute top-0 left-0 w-full justify-between items-center px-36 py-5 z-30">
-        <h1 className="text-5xl text-secondary-900 font-bold font-Outfit">
-          Planit
-        </h1>
+        <img src={Logo} alt="logo" className="h-20 w-40" />
         <div className="flex items-center space-x-10">
           <button
             onClick={signin}
