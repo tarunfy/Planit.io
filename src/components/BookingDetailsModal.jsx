@@ -85,7 +85,7 @@ const BookingDetailsModal = ({ ts, date, data }) => {
     <div>
       <button
         onClick={handleOpen}
-        className={`w-full  px-[5.5rem] py-4 text-2xl border border-primary-500 text-primary-500 rounded-md hover:bg-primary-500 hover:text-white transition-all duration-300 ease-in-out`}
+        className={`w-full  px-[5.5rem] py-4 text-2xl border border-primary text-primary-500 rounded-md hover:bg-primary hover:text-white transition-all duration-300 ease-in-out`}
       >
         {ts}
       </button>

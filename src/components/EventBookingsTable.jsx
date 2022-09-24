@@ -12,7 +12,7 @@ const EventBookingsTable = ({ eventBookings }) => {
     <TableContainer component={Paper}>
       <Table aria-label="simple table">
         <TableHead>
-          <TableRow className="!bg-primary-50">
+          <TableRow className="!bg-primary/40">
             <TableCell className="!font-bold !text-lg !font-Lexend">
               Serial Num
             </TableCell>

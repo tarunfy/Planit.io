@@ -92,13 +92,13 @@ export default function BasicModal() {
       <div className="flex items-center space-x-2">
         <button
           onClick={handleOpen}
-          className="flex items-center bg-primary-500 px-4 py-2 text-white hover:shadow-md rounded-md focus:outline-none transition font-Lexend font-noraml"
+          className="flex items-center bg-primary px-4 py-2 text-white hover:shadow-md rounded focus:outline-none transition font-Lexend font-noraml"
         >
           Create <AddIcon />
         </button>
         <button
           onClick={logout}
-          className="flex items-center bg-primary-500 px-4 py-2 text-white hover:shadow-md rounded-md focus:outline-none transition font-Lexend font-normal"
+          className="flex items-center border-primary border text-primary px-4 py-2 rounded focus:outline-none transition font-Lexend font-normal"
         >
           Logout
         </button>
@@ -223,7 +223,7 @@ export default function BasicModal() {
                   !meetLink
                 }
                 type="submit"
-                className="bg-primary-500 disabled:cursor-not-allowed disabled:bg-primary-500/50 disabled:text-white/50 text-lg font-Lexend rounded-md font-normal px-4 py-2 text-white focus:outline-none"
+                className="bg-primary disabled:cursor-not-allowed disabled:bg-primary/50 disabled:text-white/50 text-lg font-Lexend rounded-md font-normal px-4 py-2 text-white focus:outline-none"
               >
                 Submit
               </button>
