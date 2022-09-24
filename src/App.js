@@ -1,24 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import { useContext } from "react";
+import { AuthContext } from "./contexts/AuthContext";
+import Home from "./pages/Home";
+import Dashboard from "./pages/Dashboard";
+import Booking from "./pages/Booking";
+import { Switch, Route, Redirect } from "react-router-dom";
+import BookingSuccessfull from "./pages/BookingSuccessfull";
+import EventBookings from "./pages/EventBookings";
 
 function App() {
+  const { currentUser } = useContext(AuthContext);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Switch>
+        <Route
+          exact
+          path="/"
+          render={(props) =>
+            !currentUser ? <Home {...props} /> : <Redirect to="/dashboard" />
+          }
+        />
+        <Route
+          exact
+          path="/dashboard"
+          render={(props) =>
+            currentUser ? <Dashboard {...props} /> : <Redirect to="/" />
+          }
+        />
+        <Route exact path="/booking/:userId/:eventId" component={Booking} />
+        <Route
+          exact
+          path="/booking/successfull"
+          component={BookingSuccessfull}
+        />
+
+        <Route
+          exact
+          path="/bookings/:eventId"
+          render={(props) =>
+            currentUser ? <EventBookings {...props} /> : <Redirect to="/" />
+          }
+        />
+        <Route path="*" render={() => <Redirect to="/" />} />
+      </Switch>
+    </>
   );
 }
 
