@@ -34,6 +34,7 @@ const Home = () => {
           <p className="max-w-[40rem] text-secondary-400 font-Outfit font-extralight text-xl tracking-wider ">
             Planit is a free appointment scheduling app that makes life easier.
             The app helps you effortlessly schedule appointments.
+            {/* hfybeybgf */}
           </p>
           <button
             disabled={isLoading}
