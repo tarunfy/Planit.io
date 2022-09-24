@@ -25,12 +25,13 @@ const Navbar = () => {
         <div className="flex items-center space-x-10">
           <button
             onClick={signin}
-            className="font-Outfit font-normal focus:outline-none text-primary-500 text-xl hover:text-primary-600 transition"
+            className="font-Outfit font-normal focus:outline-none text-primary-500 text-xl hover:text-primary-600 transition px-2 py-1 hover:bg-primary-100 rounded  duration:200"
           >
             Login
           </button>
         </div>
       </div>
+      {/* kfmrmgem */}
       <ToastContainer />
     </>
   );

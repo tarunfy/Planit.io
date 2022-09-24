@@ -24,31 +24,22 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      <div className="h-screen z-10 flex justify-between items-center pl-36">
-        <div className="max-w-3xl space-y-5">
-          <h1 className="text-7xl tracking-tight z-20 text-secondary-700 font-Outfit font-bold leading-[5rem]">
-            The <span className="text-primary-500">scheduling</span> app your
-            were waiting
-            <span className="block text-primary-500">for.</span>
+      <div className="h-screen z-10 flex justify-between items-center ">
+        <div className=" space-y-5 text-center flex items-center flex-col justify-center w-full">
+          <h1 className="text-7xl tracking-tight z-20 text-secondary-700 font-Outfit font-bold leading-[5rem] max-w-3xl">
+          Professional  <span className="text-primary-600">scheduling,</span> Made Efficient
           </h1>
-          <p className="max-w-[40rem] text-secondary-400 font-Outfit font-extralight text-xl tracking-wider ">
-            Planit is a free appointment scheduling app that makes life easier.
-            The app helps you effortlessly schedule appointments.
+          <p className=" max-w-2xl text-secondary-400 font-Outfit font-extralight text-xl tracking-wider ">
+          Forget all your trouble of going back and forth with your client, give them a personalized hassle free scheduling experience
+            {/* hfybeybgf */}
           </p>
           <button
             disabled={isLoading}
             onClick={signin}
-            className="text-white disabled:bg-primary-500/50 disabled:text-white/50 disabled:cursor-not-allowed rounded-full focus:outline-none font-Outfit font-normal bg-primary-500 hover:bg-primary-600 transition px-10 py-5 text-xl"
+            className="text-white disabled:bg-primary-600/50 disabled:text-white/50 disabled:cursor-not-allowed rounded-full focus:outline-none font-Outfit font-normal bg-primary-600 hover:bg-primary-600 transition px-10 py-5 text-xl"
           >
-            Sign up for free <ArrowRightAltRoundedIcon />
+            Get Started <ArrowRightAltRoundedIcon />
           </button>
-        </div>
-        <div>
-          <img
-            src={heroImg}
-            alt="hero-img"
-            className="hero-img h-[30rem] w-[60rem] object-cover"
-          />
         </div>
       </div>
       <ToastContainer />
