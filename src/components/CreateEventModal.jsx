@@ -92,13 +92,13 @@ export default function BasicModal() {
       <div className="flex items-center space-x-2">
         <button
           onClick={handleOpen}
-          className="flex items-center bg-primary-500 px-4 py-2 text-white hover:shadow-md rounded-md focus:outline-none transition font-Outfit font-noraml"
+          className="flex items-center bg-primary-500 px-4 py-2 text-white hover:shadow-md rounded-md focus:outline-none transition font-Lexend font-noraml"
         >
           Create <AddIcon />
         </button>
         <button
           onClick={logout}
-          className="flex items-center bg-primary-500 px-4 py-2 text-white hover:shadow-md rounded-md focus:outline-none transition font-Outfit font-normal"
+          className="flex items-center bg-primary-500 px-4 py-2 text-white hover:shadow-md rounded-md focus:outline-none transition font-Lexend font-normal"
         >
           Logout
         </button>
@@ -112,17 +112,17 @@ export default function BasicModal() {
       >
         <Box sx={style} className="!overflow-y-scroll focus:!outline-none">
           <div className="mb-10">
-            <h1 className="text-2xl font-Outfit font-normal text-center">
+            <h1 className="text-2xl font-Lexend font-normal text-center">
               One-on-One Event
             </h1>
-            <p className="text-center underline text-lg font-Outfit font-light">
+            <p className="text-center underline text-lg font-Lexend font-light">
               Let an invitee pick a time to meet with you.
             </p>
           </div>
 
           <form className="space-y-5" onSubmit={handleSubmit}>
             <div className="flex flex-col items-start space-y-1 w-full">
-              <label htmlFor="event-name" className="font-Outfit font-light">
+              <label htmlFor="event-name" className="font-Lexend font-light">
                 Event name
               </label>
               <input
@@ -132,11 +132,11 @@ export default function BasicModal() {
                 onChange={(e) => setEventName(e.target.value)}
                 autoComplete="off"
                 id="event-name"
-                className="focus:outline-none border p-3 placeholder:text-base font-Outfit font-normal rounded-md bg-slate-50 w-full"
+                className="focus:outline-none border p-3 placeholder:text-base font-Lexend font-normal rounded-md bg-slate-50 w-full"
               />
             </div>
             <div className="flex flex-col items-start space-y-1 w-full">
-              <label htmlFor="meet-link" className="font-Outfit font-light">
+              <label htmlFor="meet-link" className="font-Lexend font-light">
                 Meet link
               </label>
               <input
@@ -146,11 +146,11 @@ export default function BasicModal() {
                 onChange={(e) => setMeetLink(e.target.value)}
                 autoComplete="off"
                 id="meet-link"
-                className="focus:outline-none border p-3 placeholder:text-base font-Outfit font-normal rounded-md bg-slate-50 w-full"
+                className="focus:outline-none border p-3 placeholder:text-base font-Lexend font-normal rounded-md bg-slate-50 w-full"
               />
             </div>
             <div className="flex flex-col items-start space-y-1 w-full">
-              <label htmlFor="event-desc" className="font-Outfit font-light">
+              <label htmlFor="event-desc" className="font-Lexend font-light">
                 Description
               </label>
               <textarea
@@ -159,7 +159,7 @@ export default function BasicModal() {
                 value={eventDescription}
                 onChange={(e) => setEventDescription(e.target.value)}
                 placeholder="Write a summary and any details your invitee should know about the event."
-                className="focus:outline-none border p-3 placeholder:text-base font-Outfit font-normal rounded-md bg-slate-50 w-full"
+                className="focus:outline-none border p-3 placeholder:text-base font-Lexend font-normal rounded-md bg-slate-50 w-full"
                 cols="2"
                 rows="4"
               ></textarea>
@@ -167,7 +167,7 @@ export default function BasicModal() {
             <div className="flex flex-col space-y-2">
               <label
                 htmlFor="event-duration"
-                className="font-Outfit font-normal"
+                className="font-Lexend font-normal"
               >
                 Duration
               </label>
@@ -179,7 +179,7 @@ export default function BasicModal() {
                     name="event-duration"
                     id="30-mins"
                   />
-                  <label htmlFor="30-mins" className="font-Outfit font-light">
+                  <label htmlFor="30-mins" className="font-Lexend font-light">
                     30 mins
                   </label>
                 </div>
@@ -190,7 +190,7 @@ export default function BasicModal() {
                     name="event-duration"
                     id="60 mins"
                   />
-                  <label htmlFor="60-mins" className="font-Outfit font-light">
+                  <label htmlFor="60-mins" className="font-Lexend font-light">
                     60 mins
                   </label>
                 </div>
@@ -199,7 +199,7 @@ export default function BasicModal() {
             <div className="flex flex-col space-y-2">
               <label
                 htmlFor="event-availability"
-                className="font-Outfit font-normal mb-4"
+                className="font-Lexend font-normal mb-4"
               >
                 How do you want to offer your availability for this event type?
               </label>
@@ -223,7 +223,7 @@ export default function BasicModal() {
                   !meetLink
                 }
                 type="submit"
-                className="bg-primary-500 disabled:cursor-not-allowed disabled:bg-primary-500/50 disabled:text-white/50 text-lg font-Outfit rounded-md font-normal px-4 py-2 text-white focus:outline-none"
+                className="bg-primary-500 disabled:cursor-not-allowed disabled:bg-primary-500/50 disabled:text-white/50 text-lg font-Lexend rounded-md font-normal px-4 py-2 text-white focus:outline-none"
               >
                 Submit
               </button>

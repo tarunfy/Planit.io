@@ -102,10 +102,10 @@ const BookingDetailsModal = ({ ts, date, data }) => {
           className="!overflow-y-scroll focus:!outline-none w-full max-w-lg"
         >
           <div className="mb-4 space-y-3">
-            <h1 className="font-semibold font-Outfit text-2xl">
+            <h1 className="font-semibold font-Lexend text-2xl">
               Let's book a meeting
             </h1>
-            <p className="font-Outfit font-light text-base max-w-sm">
+            <p className="font-Lexend font-light text-base max-w-sm">
               You're about to book a meeting with{" "}
               <span className="font-medium">{data.name}</span> on{" "}
               <span className="font-medium">
@@ -117,7 +117,7 @@ const BookingDetailsModal = ({ ts, date, data }) => {
 
           <form className="space-y-5" onSubmit={handleSubmit}>
             <div className="flex flex-col items-start space-y-1 w-full">
-              <label htmlFor="full_name" className="font-Outfit font-light">
+              <label htmlFor="full_name" className="font-Lexend font-light">
                 Full name
               </label>
               <input
@@ -126,11 +126,11 @@ const BookingDetailsModal = ({ ts, date, data }) => {
                 required
                 autoComplete="off"
                 id="full_name"
-                className="focus:outline-none border p-3 placeholder:text-base font-Outfit font-normal rounded-md bg-slate-50 w-full"
+                className="focus:outline-none border p-3 placeholder:text-base font-Lexend font-normal rounded-md bg-slate-50 w-full"
               />
             </div>
             <div className="flex flex-col items-start space-y-1 w-full">
-              <label htmlFor="email" className="font-Outfit font-light">
+              <label htmlFor="email" className="font-Lexend font-light">
                 Email address
               </label>
               <input
@@ -139,12 +139,12 @@ const BookingDetailsModal = ({ ts, date, data }) => {
                 required
                 autoComplete="off"
                 id="email"
-                className="focus:outline-none border p-3 placeholder:text-base font-Outfit font-normal rounded-md bg-slate-50 w-full"
+                className="focus:outline-none border p-3 placeholder:text-base font-Lexend font-normal rounded-md bg-slate-50 w-full"
               />
             </div>
             <button
               type="submit"
-              className="px-6 py-2 text-lg font-Outfit font-semibold bg-primary-600 text-white rounded-md"
+              className="px-6 py-2 text-lg font-Lexend font-semibold bg-primary-600 text-white rounded-md"
             >
               Submit
             </button>

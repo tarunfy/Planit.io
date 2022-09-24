@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 /* Make clicks pass-through */
 #nprogress {
@@ -10,7 +10,7 @@
 }
 
 #nprogress .bar {
-  background: #2563EB;
+  background: #2563eb;
 
   position: fixed;
   z-index: 1031;
@@ -28,7 +28,7 @@
   right: 0px;
   width: 100px;
   height: 100%;
-  box-shadow: 0 0 10px #2563EB, 0 0 5px #2563EB;
+  box-shadow: 0 0 10px #2563eb, 0 0 5px #2563eb;
   opacity: 1;
 
   -webkit-transform: rotate(3deg) translate(0px, -4px);
@@ -79,7 +79,7 @@
     @apply flex items-center space-x-2 justify-start;
   }
   .availability-label {
-    @apply font-Outfit font-bold text-xs w-10 uppercase;
+    @apply font-Lexend font-bold text-xs w-10 uppercase;
   }
 }
 
@@ -87,14 +87,14 @@
   width: 70% !important;
   border: 0px !important;
   background-color: transparent !important;
-  font-family: "Outfit", sans-serif !important;
+  font-family: "Lexend", sans-serif !important;
 }
 
 abbr:where([title]) {
   text-decoration: none !important;
 }
 .react-calendar__tile--active {
-  background-color: #2563EB !important;
+  background-color: #2563eb !important;
 }
 
 .react-calendar button {
@@ -109,12 +109,12 @@ abbr:where([title]) {
 }
 
 .react-calendar__tile--now {
-  background-color: #2563EB71 !important;
+  background-color: #2563eb71 !important;
 }
 
 react-calendar__tile--active:enabled:hover,
 .react-calendar__tile--active:enabled:focus {
-  background-color: #2563EB !important;
+  background-color: #2563eb !important;
 }
 
 .react-calendar {

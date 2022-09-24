@@ -22,7 +22,7 @@ export default function BasicModal({ event }) {
     <div>
       <button
         onClick={handleOpen}
-        className=" border-primary-500 bg-transparent text-black hover:text-white hover:bg-primary-500 border-[1px]  text-base font-Outfit font-normal px-4 py-2 focus:outline-none flex items-center transition-colors rounded-sm duration-300 ease-in-out"
+        className=" border-primary-500 bg-transparent text-black hover:text-white hover:bg-primary-500 border-[1px]  text-base font-Lexend font-normal px-4 py-2 focus:outline-none flex items-center transition-colors rounded-sm duration-300 ease-in-out"
       >
         View
       </button>
@@ -33,7 +33,7 @@ export default function BasicModal({ event }) {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <div className="font-Outfit space-y-4 text-secondary-800">
+          <div className="font-Lexend space-y-4 text-secondary-800">
             <div className="flex items-center justify-between w-full">
               <h1 className="text-5xl font-SemiBold capitalize">
                 {event?.eventName}

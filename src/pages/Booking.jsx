@@ -22,7 +22,7 @@ const Booking = () => {
 
   return (
     <div className="flex items-center justify-center h-screen mx-auto">
-      <div className="max-w-[1210px]  w-fit transition-all duration-300 ease-in-out  font-Outfit shadow-custom rounded-xl h-[600px] flex items-center justify-between ">
+      <div className="max-w-[1210px]  w-fit transition-all duration-300 ease-in-out  font-Lexend shadow-custom rounded-xl h-[600px] flex items-center justify-between ">
         <div className="w-[25%] p-10 bg-secondary-500 h-full rounded-tl-xl rounded-bl-xl">
           <img
             src={data?.profilePhoto}

@@ -21,7 +21,7 @@ const EventBookings = () => {
 
   return (
     <div className="h-screen max-w-[1000px] mx-auto py-10 space-y-5">
-      <h1 className="text-4xl font-Outfit font-semibold">
+      <h1 className="text-4xl font-Lexend font-semibold">
         All Bookings ({eventBookings.length})
       </h1>
       {<EventBookingsTable eventBookings={eventBookings} />}

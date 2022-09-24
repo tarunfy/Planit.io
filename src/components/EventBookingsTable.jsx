@@ -13,29 +13,29 @@ const EventBookingsTable = ({ eventBookings }) => {
       <Table aria-label="simple table">
         <TableHead>
           <TableRow className="!bg-primary-50">
-            <TableCell className="!font-bold !text-lg !font-Outfit">
+            <TableCell className="!font-bold !text-lg !font-Lexend">
               Serial Num
             </TableCell>
             <TableCell
-              className="!font-bold !text-lg !font-Outfit"
+              className="!font-bold !text-lg !font-Lexend"
               align="right"
             >
               Name
             </TableCell>
             <TableCell
-              className="!font-bold !text-lg !font-Outfit"
+              className="!font-bold !text-lg !font-Lexend"
               align="right"
             >
               Email
             </TableCell>
             <TableCell
-              className="!font-bold !text-lg !font-Outfit"
+              className="!font-bold !text-lg !font-Lexend"
               align="right"
             >
               Date
             </TableCell>
             <TableCell
-              className="!font-bold !text-lg !font-Outfit"
+              className="!font-bold !text-lg !font-Lexend"
               align="right"
             >
               Timeslot
@@ -49,32 +49,32 @@ const EventBookingsTable = ({ eventBookings }) => {
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
               <TableCell
-                className="!font-normal !text-base !font-Outfit"
+                className="!font-normal !text-base !font-Lexend"
                 component="th"
                 scope="row"
               >
                 {index + 1}
               </TableCell>
               <TableCell
-                className="!font-normal !text-base !font-Outfit"
+                className="!font-normal !text-base !font-Lexend"
                 align="right"
               >
                 {row.name}
               </TableCell>
               <TableCell
-                className="!font-normal !text-base !font-Outfit"
+                className="!font-normal !text-base !font-Lexend"
                 align="right"
               >
                 {row.email}
               </TableCell>
               <TableCell
-                className="!font-normal !text-base !font-Outfit"
+                className="!font-normal !text-base !font-Lexend"
                 align="right"
               >
                 {row.date}
               </TableCell>
               <TableCell
-                className="!font-normal !text-base !font-Outfit"
+                className="!font-normal !text-base !font-Lexend"
                 align="right"
               >
                 {row.ts}

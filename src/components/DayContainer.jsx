@@ -51,7 +51,7 @@ const DayContainer = ({ dayName, setDaysData }) => {
             setTo={setTo}
           />
         ) : (
-          <p className="text-sm font-Outfit font-light">Unavailable</p>
+          <p className="text-sm font-Lexend font-light">Unavailable</p>
         )}
       </li>
     </>

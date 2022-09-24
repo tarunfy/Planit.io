@@ -13,7 +13,7 @@ const BookingSuccessfull = () => {
           src="https://assets2.lottiefiles.com/packages/lf20_atippmse.json"
           style={{ height: "200px", width: "200px" }}
         ></Player>
-        <h4 className="font-Outfit text-3xl text-center">
+        <h4 className="font-Lexend text-3xl text-center">
           Your meeting has been booked successfully.
         </h4>
       </div>
