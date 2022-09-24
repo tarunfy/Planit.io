@@ -24,7 +24,10 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      <div className="h-screen z-10 flex justify-between items-center bg-slate-50">
+      <div
+        id="home"
+        className="h-screen z-10 flex justify-between items-center bg-slate-50"
+      >
         <div className="space-y-5 text-center flex items-center flex-col justify-center w-full">
           <h1 className="text-7xl z-20 text-gray-900 font-Lexend font-semibold leading-[5rem] max-w-4xl ">
             Professional{" "}
