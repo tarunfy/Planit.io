@@ -85,7 +85,7 @@ const BookingDetailsModal = ({ ts, date, data }) => {
     <div>
       <button
         onClick={handleOpen}
-        className={`w-full  px-[5.5rem] py-4 text-2xl border border-primary text-primary-500 rounded-md hover:bg-primary hover:text-white transition-all duration-300 ease-in-out`}
+        className={`w-full  px-[5.5rem] py-4 text-2xl border border-primary text-primary-500 rounded-md hover:bg-primary  hover:text-white transition-all duration-300 ease-in-out`}
       >
         {ts}
       </button>
@@ -144,7 +144,7 @@ const BookingDetailsModal = ({ ts, date, data }) => {
             </div>
             <button
               type="submit"
-              className="px-6 py-2 text-lg font-Lexend font-semibold bg-primary-600 text-white rounded-md"
+              className="px-6 py-2 text-lg font-Lexend font-semibold bg-primary text-white rounded-md"
             >
               Submit
             </button>
