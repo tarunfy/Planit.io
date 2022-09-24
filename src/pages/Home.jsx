@@ -32,7 +32,7 @@ const Home = () => {
             <span className="block text-primary-500">for.</span>
           </h1>
           <p className="max-w-[40rem] text-secondary-400 font-Outfit font-extralight text-xl tracking-wider ">
-            Planpot is a free appointment scheduling app that makes life easier.
+            Planit is a free appointment scheduling app that makes life easier.
             The app helps you effortlessly schedule appointments.
           </p>
           <button

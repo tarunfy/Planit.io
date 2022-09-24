@@ -21,7 +21,7 @@ const Navbar = () => {
     <>
       <div className="flex absolute top-0 left-0 w-full justify-between items-center px-36 py-5 z-30">
         <h1 className="text-5xl text-secondary-900 font-bold font-Outfit">
-          Planpot
+          Planit
         </h1>
         <div className="flex items-center space-x-10">
           <button
