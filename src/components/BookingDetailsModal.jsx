@@ -2,12 +2,10 @@ import { useState } from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import { useRef } from "react";
-import { auth, db } from "../utils/dbConfig";
+import { db } from "../utils/dbConfig";
 import { useParams, useHistory } from "react-router";
 import nProgress from "nprogress";
-
 import { sendEmail } from "../utils/emailConfig";
-
 import "react-toastify/dist/ReactToastify.css";
 import moment from "moment";
 
@@ -19,6 +17,21 @@ const style = {
   bgcolor: "background.paper",
   boxShadow: 24,
   p: 4,
+};
+
+const loadRazorpay = () => {
+  return new Promise((resolve) => {
+    const script = document.createElement("script");
+    script.src = "https://checkout.razorpay.com/v1/checkout.js";
+
+    script.onload = () => {
+      resolve(true);
+    };
+    script.onerror = () => {
+      resolve(false);
+    };
+    document.body.appendChild(script);
+  });
 };
 
 const BookingDetailsModal = ({ ts, date, data }) => {
@@ -37,7 +50,7 @@ const BookingDetailsModal = ({ ts, date, data }) => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e?.preventDefault();
     const name = nameRef.current.value;
     const email = emailRef.current.value;
     nProgress.start();
@@ -81,6 +94,36 @@ const BookingDetailsModal = ({ ts, date, data }) => {
     handleClose();
   };
 
+  const displayRazorpay = async (e) => {
+    e.preventDefault();
+    const res = await loadRazorpay();
+    if (!res) {
+      alert("Razorpay SDK failed to load");
+      return;
+    }
+
+    let options = {
+      key: process.env.REACT_APP_RAZORPAY_TEST_API_KEY,
+      amount: `${data.price * 100}`,
+      currency: "INR",
+      name: "Meeting",
+      description: `Meeting with ${data.name}`,
+      image:
+        "https://firebasestorage.googleapis.com/v0/b/planit-fe5a6.appspot.com/o/logo.svg?alt=media&token=002eb75f-b600-456d-b26c-ae9d1d8f2fd2",
+      prefill: {
+        name: data.name,
+        email: data.email,
+      },
+      handler: function (response) {
+        handleSubmit();
+      },
+    };
+
+    const paymentObject = new window.Razorpay(options);
+
+    paymentObject.open();
+  };
+
   return (
     <div>
       <button
@@ -115,7 +158,10 @@ const BookingDetailsModal = ({ ts, date, data }) => {
             </p>
           </div>
 
-          <form className="space-y-5" onSubmit={handleSubmit}>
+          <form
+            className="space-y-5"
+            onSubmit={data.price == 0 ? handleSubmit : displayRazorpay}
+          >
             <div className="flex flex-col items-start space-y-1 w-full">
               <label htmlFor="full_name" className="font-Lexend font-light">
                 Full name
@@ -146,7 +192,7 @@ const BookingDetailsModal = ({ ts, date, data }) => {
               type="submit"
               className="px-6 py-2 text-lg font-Lexend font-semibold bg-primary text-white rounded-md"
             >
-              Submit
+              {data.price === 0 ? "Submit" : "Make payment"}
             </button>
           </form>
         </Box>
