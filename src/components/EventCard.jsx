@@ -4,9 +4,12 @@ import ViewEventModal from "./ViewEventModal";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
+import DeleteIcon from "@mui/icons-material/Delete";
+import { EventContext } from "../contexts/EventContext";
 
 const EventCard = ({ event }) => {
   const { currentUser } = useContext(AuthContext);
+  const { deleteEvent } = useContext(EventContext);
 
   const handleCopy = (e) => {
     navigator.clipboard.writeText(e.target.id);
@@ -24,9 +27,17 @@ const EventCard = ({ event }) => {
   return (
     <div className="bg-white relative border-t-4 border-t-primary w-full p-5 rounded-md shadow-md flex justify-center  items-center flex-col space-y-2">
       <div className="w-full mb-10 space-y-2">
-        <h1 className="font-Lexend font-extrabold text-3xl text-secondary-700">
-          {event?.eventName}
-        </h1>
+        <div className="flex items-center justify-between w-full">
+          <h1 className="font-Lexend font-extrabold text-3xl text-secondary-700">
+            {event?.eventName}
+          </h1>
+          <button
+            onClick={() => deleteEvent(event.eventId)}
+            className=" focus:outline-none text-red-500 text-xl transition px-2 py-1 hover:bg-red-500/25 rounded duration:200"
+          >
+            <DeleteIcon />
+          </button>
+        </div>
 
         <p className="font-Lexend break-words font-normal  text-lg text-secondary-500 truncate">
           {event?.description}

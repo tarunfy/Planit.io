@@ -95,6 +95,20 @@ export const EventProvider = ({ children }) => {
     };
   };
 
+  const deleteEvent = async (eventId) => {
+    setIsLoading(true);
+    nProgress.start();
+    await db
+      .collection("users")
+      .doc(currentUser.userId)
+      .collection("events")
+      .doc(eventId)
+      .delete();
+    await fetchEvents();
+    nProgress.done();
+    setIsLoading(false);
+  };
+
   const fetchEventData = async (userId, eventId) => {
     nProgress.start();
     let error;
@@ -127,6 +141,7 @@ export const EventProvider = ({ children }) => {
         createEvent,
         fetchEvents,
         events,
+        deleteEvent,
         eventBookings,
         fetchEventBookings,
         fetchEventData,
