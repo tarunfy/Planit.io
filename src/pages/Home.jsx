@@ -2,8 +2,11 @@ import zigzag from "../assets/images/zigzag.svg";
 import ArrowRightAltRoundedIcon from "@mui/icons-material/ArrowRightAltRounded";
 import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../contexts/AuthContext";
 
 const Home = () => {
+  const { googleAuth } = useContext(AuthContext);
   return (
     <>
       <Navbar />
@@ -28,12 +31,12 @@ const Home = () => {
             Forget all your trouble of going back and forth with your client,
             give them a personalized hassle free scheduling experience
           </p>
-          <Link
-            to="/signup"
+          <button
+            onClick={googleAuth}
             className="text-white disabled:bg-primary-600/50 disabled:text-white/50 disabled:cursor-not-allowed rounded-full focus:outline-none font-Lexend font-normal bg-primary hover:bg-primary/95 transition px-10 py-5 text-xl"
           >
             Get Started <ArrowRightAltRoundedIcon />
-          </Link>
+          </button>
         </div>
       </div>
     </>

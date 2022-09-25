@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect } from "react";
 import nProgress from "nprogress";
-import { auth, db } from "../utils/dbConfig";
+import { auth, db, storage } from "../utils/dbConfig";
 import firebase from "firebase";
 
 export const AuthContext = createContext(null);
@@ -14,12 +14,15 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     auth.onAuthStateChanged(async (user) => {
       if (user) {
-        await db.collection("users").doc(user.uid).set({
-          userId: user.uid,
-          name: user.displayName,
-          profilePhoto: user.photoURL,
-          email: user.email,
-        });
+        const res = await db.collection("users").doc(user.uid).get();
+        if (!res.exists) {
+          await db.collection("users").doc(user.uid).set({
+            userId: user.uid,
+            name: user.displayName,
+            profilePhoto: user.photoURL,
+            email: user.email,
+          });
+        }
         setCurrentUser({
           userId: user.uid,
           name: user.displayName,
@@ -33,7 +36,7 @@ export const AuthProvider = ({ children }) => {
     });
   }, []);
 
-  const signin = async () => {
+  const googleAuth = async () => {
     setIsLoading(true);
     nProgress.start();
     let provider = new firebase.auth.GoogleAuthProvider();
@@ -55,7 +58,7 @@ export const AuthProvider = ({ children }) => {
   return (
     <AuthContext.Provider
       value={{
-        signin,
+        googleAuth,
         isLoading,
         currentUser,
         authError,
