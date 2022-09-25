@@ -7,6 +7,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import BookingSuccessfull from "./pages/BookingSuccessfull";
 import EventBookings from "./pages/EventBookings";
 import Signin from "./pages/Signin";
+import Signup from "./pages/Signup";
 
 function App() {
   const { currentUser } = useContext(AuthContext);
@@ -26,6 +27,13 @@ function App() {
           path="/signin"
           render={(props) =>
             !currentUser ? <Signin {...props} /> : <Redirect to="/dashboard" />
+          }
+        />
+        <Route
+          exact
+          path="/signup"
+          render={(props) =>
+            !currentUser ? <Signup {...props} /> : <Redirect to="/dashboard" />
           }
         />
         <Route

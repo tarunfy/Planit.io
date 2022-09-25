@@ -7,13 +7,14 @@ import google from "../assets/images/google.svg";
 import { AuthContext } from "../contexts/AuthContext";
 import "react-toastify/dist/ReactToastify.css";
 
-const Signin = () => {
+const Signup = () => {
   const [creds, setCreds] = useState({
     email: "",
     password: "",
+    profileImg: "",
   });
 
-  const { signin, authError } = useContext(AuthContext);
+  const { signup, authError, isLoading } = useContext(AuthContext);
 
   if (authError) {
     toast.error(authError, {
@@ -33,6 +34,7 @@ const Signin = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(creds);
   };
 
   return (
@@ -43,12 +45,13 @@ const Signin = () => {
             <img src={logo} alt="logo" />
           </Link>
           <div className="space-y-1">
-            <h4 className="text-2xl">Sign in to your account</h4>
+            <h4 className="text-2xl">Get started for free</h4>
             <p className="text-sm">
-              Don&#39;t have an account?{" "}
-              <Link to="/signup" className="text-blue-600">
-                Sign up
-              </Link>
+              Already registered?{" "}
+              <Link to="/signin" className="text-blue-600">
+                Sign in
+              </Link>{" "}
+              to your account.
             </p>
           </div>
           <form
@@ -75,23 +78,37 @@ const Signin = () => {
                 className="px-3 py-2 rounded-md border w-full"
               />
             </div>
+            <div className="w-full space-y-2">
+              <label>Profile Image</label>
+              <input
+                type="file"
+                name="profileImg"
+                value={creds.profileImg}
+                onChange={handleChange}
+                className="px-3 py-2 rounded-md border w-full"
+              />
+            </div>
             <button
-              disabled={!creds.email || !creds.password}
+              disabled={!creds.email || !creds.password || !creds.profileImg}
               type="submit"
               className="!mt-10 w-full bg-primary text-white text-base rounded-full p-2 disabled:cursor-not-allowed disabled:text-gray-300 disabled:bg-primary/50 hover:bg-primary/90"
             >
-              Sign in
+              Sign up
             </button>
             <div className="w-full flex space-x-2 items-center justify-center">
               <div className="w-full bg-black h-[1px]"></div>
               <span>OR</span>
               <div className="w-full bg-black h-[1px]"></div>
             </div>
-            <button className=" w-full bg-primary text-white text-base rounded-full p-2 disabled:cursor-not-allowed disabled:text-gray-300 disabled:bg-primary/50 hover:bg-primary/90 flex items-center justify-center">
+            <button
+              disabled={isLoading}
+              onClick={signup}
+              className=" w-full bg-primary text-white text-base rounded-full p-2 disabled:cursor-not-allowed disabled:text-gray-300 disabled:bg-primary/50 hover:bg-primary/90 flex items-center justify-center"
+            >
               <span className="mr-2">
                 <img src={google} alt="" />
               </span>
-              Sign in with google
+              Sign up with google
             </button>
           </form>
         </div>
@@ -102,4 +119,4 @@ const Signin = () => {
   );
 };
 
-export default Signin;
+export default Signup;
