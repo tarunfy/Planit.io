@@ -14,7 +14,7 @@ const BookingTimeContainer = ({ date, daysData, data }) => {
 
   useEffect(() => {
     createSlots();
-  }, [date, timeslots]);
+  }, [date]);
 
   const createSlots = async () => {
     const day = daysData[dayName.substring(0, 3).toLowerCase()];

@@ -20,8 +20,8 @@ const Booking = () => {
     getData();
   }, []);
 
-  const tileDisabled = ({ activeStartDate, date, view }) => {
-    return date < new Date();
+  const tileDisabled = ({ date: myDate }) => {
+    return myDate < new Date();
   };
 
   return (
@@ -49,7 +49,7 @@ const Booking = () => {
             </div>
           </div>
         </div>
-        <div className="w-[75%] flex   items-start p-10 h-full rounded-tr-xl rounded-br-xl">
+        <div className="w-[75%] flex overflow-y-scroll   items-start p-10 h-full rounded-tr-xl rounded-br-xl">
           <div
             className={`  ${
               date ? "w-[60%] border-r-2 pr-2" : "w-full"

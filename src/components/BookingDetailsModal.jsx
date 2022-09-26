@@ -5,9 +5,9 @@ import { useRef } from "react";
 import { db } from "../utils/dbConfig";
 import { useParams, useHistory } from "react-router";
 import nProgress from "nprogress";
-import { sendEmail } from "../utils/emailConfig";
 import "react-toastify/dist/ReactToastify.css";
 import moment from "moment";
+import Progress from "./Progress";
 
 const style = {
   position: "absolute",
@@ -65,24 +65,34 @@ const BookingDetailsModal = ({ ts, date, data }) => {
         .collection("bookings")
         .add({ ts, date: date.format("DD-MM-YYYY"), name, email });
 
-      // owner email
-      sendEmail({
-        user_name: name,
-        user_email: email,
-        meet_link: data.meetLink,
-        meet_date: date.format("DD-MM-YYYY"),
-        meet_time: ts,
-        reply_to: data.email,
+      await fetch("http://localhost:3000/api/sender", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          user_name: data.name,
+          user_email: data.email,
+          meet_link: data.meetLink,
+          meet_date: date.format("DD-MM-YYYY"),
+          meet_time: ts,
+          reply_to: email,
+        }),
       });
 
-      // user email
-      sendEmail({
-        user_name: data.name,
-        user_email: data.email,
-        meet_link: data.meetLink,
-        meet_date: date.format("DD-MM-YYYY"),
-        meet_time: ts,
-        reply_to: email,
+      await fetch("http://localhost:3000/api/sender", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          user_name: name,
+          user_email: email,
+          meet_link: data.meetLink,
+          meet_date: date.format("DD-MM-YYYY"),
+          meet_time: ts,
+          reply_to: data.email,
+        }),
       });
     } catch (err) {
       console.log(err.message);
@@ -189,10 +199,12 @@ const BookingDetailsModal = ({ ts, date, data }) => {
               />
             </div>
             <button
+              disabled={isLoading}
               type="submit"
-              className="px-6 py-2 text-lg font-Lexend font-semibold bg-primary text-white rounded-md"
+              className="px-6 disabled:cursor-not-allowed disabled:bg-primary/50 disabled:text-gray-400 py-2 text-lg font-Lexend font-semibold bg-primary text-white rounded-md flex items-center space-x-3"
             >
-              {data.price === 0 ? "Submit" : "Make payment"}
+              {data.price === 0 ? "Submit" : "Make payment"}{" "}
+              {isLoading && <Progress />}
             </button>
           </form>
         </Box>
