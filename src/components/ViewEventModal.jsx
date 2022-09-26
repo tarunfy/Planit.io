@@ -24,7 +24,7 @@ export default function BasicModal({ event }) {
         onClick={handleOpen}
         className=" border-primary bg-transparent text-slate-700 hover:text-white hover:bg-primary border-[1px]  text-sm font-Lexend font-light px-3 py-2 focus:outline-none flex items-center transition-colors rounded-md duration-300 ease-in-out"
       >
-        View
+        View details
       </button>
       <Modal
         open={open}

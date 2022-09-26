@@ -7,6 +7,7 @@ import Modal from "@mui/material/Modal";
 import DayContainer from "./DayContainer";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import LogoutIcon from "@mui/icons-material/Logout";
 
 const style = {
   position: "absolute",
@@ -94,14 +95,15 @@ export default function BasicModal() {
       <div className="flex items-center space-x-2">
         <button
           onClick={handleOpen}
-          className="flex items-center bg-primary px-4 py-2 text-white hover:shadow-md rounded focus:outline-none transition font-Lexend font-noraml"
+          className="flex items-center bg-primary px-4 py-2 text-white hover:scale-95 duration-300 rounded focus:outline-none transition font-Lexend font-light"
         >
-          Create <AddIcon />
+          <AddIcon /> Create meeting
         </button>
         <button
           onClick={logout}
-          className="flex items-center border-primary border text-primary px-4 py-2 rounded focus:outline-none transition font-Lexend font-normal"
+          className="flex items-center border-primary border text-primary px-4 py-2 rounded hover:scale-95 duration-300 focus:outline-none transition font-Lexend font-light"
         >
+          <LogoutIcon />
           Logout
         </button>
       </div>

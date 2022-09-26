@@ -36,7 +36,7 @@ const EventCard = ({ event }) => {
             </h1>
             <button
               onClick={() => deleteEvent(event.eventId)}
-              className=" focus:outline-none text-red-500 text-xl transition px-2 py-1 hover:bg-red-500/5 rounded duration:200"
+              className="focus:outline-none text-red-500 text-xl transition px-2 py-1 hover:bg-red-500/10 font-light  rounded duration:200"
             >
               <DeleteIcon />
             </button>

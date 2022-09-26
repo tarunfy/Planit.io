@@ -10,8 +10,8 @@ const Dashboard = () => {
     <>
       <div className="px-16 py-20">
         <div className="flex justify-between items-center mb-20">
-          <h1 className="font-Lexend font-semibold tracking-tight text-5xl">
-            Your meetings
+          <h1 className="font-Lexend font-semibold tracking-tighter text-gray-800 text-5xl">
+            Your meetings ({events.length})
           </h1>
           <CreateEventModal />
         </div>
