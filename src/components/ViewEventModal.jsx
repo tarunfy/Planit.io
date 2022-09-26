@@ -2,6 +2,9 @@ import { useState } from "react";
 import Box from "@mui/material/Box";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import Modal from "@mui/material/Modal";
+import TrendingFlatRoundedIcon from "@mui/icons-material/TrendingFlatRounded";
+import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
+import CalendarMonthRoundedIcon from "@mui/icons-material/CalendarMonthRounded";
 
 const style = {
   position: "absolute",
@@ -10,7 +13,6 @@ const style = {
   transform: "translate(-50%, -50%)",
   bgcolor: "background.paper",
   boxShadow: 24,
-  p: 4,
 };
 
 export default function BasicModal({ event }) {
@@ -33,51 +35,67 @@ export default function BasicModal({ event }) {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <div className="font-Lexend space-y-4 text-secondary-800">
-            <div className="flex items-center justify-between w-full">
-              <h1 className="text-5xl font-SemiBold capitalize">
+          <div className="font-Lexend space-y-4 w-[700px] text-secondary-800">
+            <div className="flex items-center p-4 border-b justify-between w-full">
+              <h1 className="text-3xl font-Mediem capitalize">
                 {event?.eventName}
               </h1>
-              <div className="flex items-center text-secondary-400 justify-center">
-                <AccessTimeIcon className="mr-2 t" />
-                <p className="font-normal text-normal">{event?.duration}</p>
+              <div className="flex items-center justify-between space-x-5">
+                <div className="flex items-center text-secondary-400 justify-center">
+                  <AccessTimeIcon className="mr-2 text-lg" />
+                  <p className="font-light text-normal">{event?.duration}</p>
+                </div>
+                <div>
+                  <p className="text-gray-600 font-light">
+                    {" "}
+                    <CurrencyRupeeIcon className="!text-lg text-green-600" />
+                    {event.price > 0 ? event.price : "FREE"}
+                  </p>
+                </div>
               </div>
             </div>
-            <p className="max-w-lg font-light">{event?.description}</p>
-            <p className="max-w-lg font-normal">
-              Meet link:
-              <a
-                href={event?.meetLink}
-                target="_blank"
-                className="font-medium text-blue-600"
-              >
-                {" "}
-                {event?.meetLink}
-              </a>
-            </p>
-
-            <div className="space-y-2">
-              <div>
-                <h4 className="text-xl font-semibold">TimeSlots:</h4>
-                {Object.keys(event.daysData).map((key, index) => (
-                  <div key={index} className="flex items-center">
-                    <div className="w-10">
-                      <h3 className="text-base font-medium">{key}</h3>
-                    </div>
-                    {event.daysData[key] !== null ? (
-                      <div className="flex items-center w-52 justify-end text-right">
-                        <p>{event.daysData[key].from}</p>
-                        <span className="mx-4">-</span>
-                        <p>{event.daysData[key].to}</p>
-                      </div>
-                    ) : (
-                      <div className="flex items-center w-52 justify-end text-right">
-                        null
-                      </div>
-                    )}
-                  </div>
-                ))}
+            <div className="space-y-5 px-4">
+              <div className="space-y-1">
+                <h3 className="text-xl">Description</h3>
+                <p className="text-base font-light">{event?.description}</p>
               </div>
+              <div>
+                <p className="text-xl font-normal">
+                  Here is your meeting link <TrendingFlatRoundedIcon />
+                  <a
+                    href={event?.meetLink}
+                    target="_blank"
+                    className="font-light text-base text-blue-600"
+                  >
+                    {" "}
+                    {event?.meetLink}
+                  </a>
+                </p>
+              </div>
+            </div>
+
+            <div className="space-y-2 p-5 border-t">
+              <h4 className="text-xl font-normal flex items-center">
+                TimeSlots <CalendarMonthRoundedIcon className="!ml-2" />
+              </h4>
+              {Object.keys(event.daysData).map((key, index) => (
+                <div key={index} className="flex items-center">
+                  <div className="w-10">
+                    <h3 className="text-base font-light capitalize">{key}</h3>
+                  </div>
+                  {event.daysData[key] !== null ? (
+                    <div className="flex font-light items-center w-full justify-end text-right">
+                      <p>{event.daysData[key].from}</p>
+                      <span className="mx-4">-</span>
+                      <p>{event.daysData[key].to}</p>
+                    </div>
+                  ) : (
+                    <div className="flex font-light items-center w-full justify-end text-right">
+                      Unavailable
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
         </Box>
