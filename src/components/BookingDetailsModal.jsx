@@ -81,6 +81,8 @@ const BookingDetailsModal = ({ ts, date, data }) => {
         }),
       });
 
+      //debugger;
+
       await fetch("/api/sender", {
         method: "POST",
         headers: {
