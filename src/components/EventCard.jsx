@@ -1,11 +1,13 @@
 import { useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 import ViewEventModal from "./ViewEventModal";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { EventContext } from "../contexts/EventContext";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
 
 const EventCard = ({ event }) => {
   const { currentUser } = useContext(AuthContext);
@@ -25,40 +27,45 @@ const EventCard = ({ event }) => {
   };
 
   return (
-    <div className="bg-white relative border-t-4 border-t-primary w-full p-5 rounded-md shadow-md flex justify-center  items-center flex-col space-y-16">
-      <div className="w-full mb-10 space-y-2">
-        <div className="flex items-center justify-between w-full">
-          <h1 className="font-Lexend font-extrabold text-3xl text-secondary-700">
-            {event?.eventName}
-          </h1>
-          <button
-            onClick={() => deleteEvent(event.eventId)}
-            className=" focus:outline-none text-red-500 text-xl transition px-2 py-1 hover:bg-red-500/25 rounded duration:200"
+    <>
+      <div className="bg-white w-full rounded-lg shadow-md flex justify-between flex-col  items-center space-y-16">
+        <div className="w-full space-y-2">
+          <div className="flex items-center p-5 justify-between w-full">
+            <h1 className="font-Lexend font-light text-xl text-gray-700">
+              {event?.eventName}
+            </h1>
+            <button
+              onClick={() => deleteEvent(event.eventId)}
+              className=" focus:outline-none text-red-500 text-xl transition px-2 py-1 hover:bg-red-500/5 rounded duration:200"
+            >
+              <DeleteIcon />
+            </button>
+          </div>
+        </div>
+        <div className="flex justify-between p-5 border-t items-center w-full">
+          <p
+            onClick={(e) => handleCopy(e)}
+            id={`http://localhost:3000/booking/${currentUser.userId}/${event.eventId}`}
+            className="text-sm px-4 py-3 bg-slate-100 rounded-full font-normal  cursor-pointer"
           >
-            <DeleteIcon />
-          </button>
+            <ContentCopyIcon className="!text-base" /> Copy Link
+          </p>
+          <p className="text-gray-600 font-light">
+            <CurrencyRupeeIcon className="!text-lg text-green-600" />
+            {event.price > 0 ? event.price : "FREE"}
+          </p>
+          <div className="space-x-2 flex items-center">
+            <Link
+              to={`/bookings/${event.eventId}`}
+              className="border-primary bg-transparent text-slate-700 hover:text-white hover:bg-primary border-[1px] text-sm font-Lexend font-light px-3 py-2 focus:outline-none flex items-center transition-colors rounded-md duration-300 ease-in-out"
+            >
+              Bookings
+            </Link>
+            <ViewEventModal event={event} />
+          </div>
         </div>
       </div>
-      <div className="flex absolute bottom-2 px-5 justify-between items-center w-full">
-        <p
-          onClick={(e) => handleCopy(e)}
-          id={`http://localhost:3000/booking/${currentUser.userId}/${event.eventId}`}
-          className="text-sm p-2 bg-slate-100 rounded-full font-medium text-blue-600 cursor-pointer"
-        >
-          Copy Link
-        </p>
-        <div className="space-x-2 flex items-center">
-          <Link
-            to={`/bookings/${event.eventId}`}
-            className="border-primary bg-transparent text-black hover:text-white hover:bg-primary border-[1px]  text-base font-Lexend font-normal px-3 py-2 focus:outline-none flex items-center transition-colors rounded-sm duration-300 ease-in-out"
-          >
-            Bookings
-          </Link>
-          <ViewEventModal event={event} />
-        </div>
-      </div>
-      <ToastContainer />
-    </div>
+    </>
   );
 };
 

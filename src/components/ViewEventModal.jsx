@@ -22,7 +22,7 @@ export default function BasicModal({ event }) {
     <div>
       <button
         onClick={handleOpen}
-        className=" border-primary bg-transparent text-black hover:text-white hover:bg-primary border-[1px]  text-base font-Lexend font-normal px-4 py-2 focus:outline-none flex items-center transition-colors rounded-sm duration-300 ease-in-out"
+        className=" border-primary bg-transparent text-slate-700 hover:text-white hover:bg-primary border-[1px]  text-sm font-Lexend font-light px-3 py-2 focus:outline-none flex items-center transition-colors rounded-md duration-300 ease-in-out"
       >
         View
       </button>

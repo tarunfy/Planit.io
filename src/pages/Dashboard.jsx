@@ -15,7 +15,7 @@ const Dashboard = () => {
           </h1>
           <CreateEventModal />
         </div>
-        <div className="w-full grid grid-cols-3 gap-2">
+        <div className="w-full grid grid-cols-2 gap-x-44 gap-y-8">
           {events &&
             events.map((event) => (
               <EventCard event={event} key={event.eventId} />
