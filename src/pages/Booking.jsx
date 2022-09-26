@@ -20,6 +20,10 @@ const Booking = () => {
     getData();
   }, []);
 
+  const tileDisabled = ({ activeStartDate, date, view }) => {
+    return date < new Date();
+  };
+
   return (
     <div
       id="booking"
@@ -52,7 +56,11 @@ const Booking = () => {
             } transition-all duration-300 ease-in-out`}
           >
             <h1 className="text-2xl font-bold mb-3">When should we meet</h1>
-            <Calendar value={date} onChange={setDate} />
+            <Calendar
+              value={date}
+              onChange={setDate}
+              tileDisabled={tileDisabled}
+            />
           </div>
           {date && (
             <BookingTimeContainer

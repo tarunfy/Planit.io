@@ -100,7 +100,7 @@ abbr:where([title]) {
 .react-calendar button {
   border-radius: 10px;
   font-size: 1.2rem;
-  /*padding: 16px !important;*/
+  padding: 16px !important;
   width: fit-content !important;
 }
 
@@ -124,6 +124,10 @@ react-calendar__tile--active:enabled:hover,
 
 .react-calendar__tile {
   line-height: 50px !important;
+}
+.react-calendar__tile:disabled {
+  text-decoration: line-through;
+  background-color: transparent !important;
 }
 
 #home {
