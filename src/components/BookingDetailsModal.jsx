@@ -77,6 +77,7 @@ const BookingDetailsModal = ({ ts, date, data }) => {
           meet_date: date.format("DD-MM-YYYY"),
           meet_time: ts,
           reply_to: email,
+          data,
         }),
       });
 
@@ -92,6 +93,7 @@ const BookingDetailsModal = ({ ts, date, data }) => {
           meet_date: date.format("DD-MM-YYYY"),
           meet_time: ts,
           reply_to: data.email,
+          data,
         }),
       });
     } catch (err) {
