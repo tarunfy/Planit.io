@@ -65,7 +65,7 @@ const BookingDetailsModal = ({ ts, date, data }) => {
         .collection("bookings")
         .add({ ts, date: date.format("DD-MM-YYYY"), name, email });
 
-      await fetch("http://localhost:3000/api/sender", {
+      await fetch("https://www.planitio.vercel.app/api/sender", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -81,7 +81,7 @@ const BookingDetailsModal = ({ ts, date, data }) => {
         }),
       });
 
-      await fetch("http://localhost:3000/api/sender", {
+      await fetch("https://www.planitio.vercel.app/api/sender", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
