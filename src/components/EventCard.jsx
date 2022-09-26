@@ -44,7 +44,7 @@ const EventCard = ({ event }) => {
       <div className="flex justify-between p-5 border-t items-center w-full">
         <p
           onClick={(e) => handleCopy(e)}
-          id={`https:/www.planitio.vercel.app/booking/${currentUser.userId}/${event.eventId}`}
+          id={`planitio.vercel.app/booking/${currentUser.userId}/${event.eventId}`}
           className="text-sm px-4 py-3 bg-slate-100 rounded-full font-normal  cursor-pointer"
         >
           <ContentCopyIcon className="!text-base" /> Copy Link
