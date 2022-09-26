@@ -95,7 +95,7 @@ export default function BasicModal() {
       <div className="flex items-center space-x-2">
         <button
           onClick={handleOpen}
-          className="flex items-center bg-primary px-4 py-2 text-white hover:scale-95 duration-300 rounded focus:outline-none transition font-Lexend font-light"
+          className="flex items-center bg-primary px-4 py-2 text-white hover:scale-95 duration-300 focus:outline-none transition font-Lexend font-light"
         >
           <AddIcon /> Create meeting
         </button>
@@ -114,7 +114,10 @@ export default function BasicModal() {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style} className="!overflow-y-scroll focus:!outline-none">
+        <Box
+          sx={style}
+          className="!overflow-y-scroll !rounded-lg focus:!outline-none"
+        >
           <div className="mb-10">
             <h1 className="text-2xl font-Lexend font-normal text-center">
               One-on-One Event
