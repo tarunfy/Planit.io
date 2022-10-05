@@ -29,7 +29,7 @@ const Home = () => {
           </h1>
           <p className="max-w-2xl text-secondary-400 font-Lexend font-extralight text-xl tracking-wider ">
             Forget all your trouble of going back and forth with your client,
-            give them a personalized hassle free scheduling experience
+            give them a personalized hassle free scheduling experience.
           </p>
           <button
             onClick={googleAuth}
